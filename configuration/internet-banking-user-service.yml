@@ -1,11 +1,14 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/banking_core_user_service
-    username: root
+    url: jdbc:postgresql://72.167.48.185:5433/dash-user-service
+    username: keycloak
     password: password
+    driver-class-name: org.postgresql.Driver
+    jpa:
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
 
 server:
   port: 8083
@@ -25,7 +28,7 @@ app:
       server-url: http://localhost:8080/auth
       realm: javatodev-internet-banking
       clientId: internet-banking-api-client
-      client-secret: dd3fe18f-2843-4a6d-a815-4808e710a98a
+      client-secret: R7hdjxIQPOtPgY7eMNg3KVW9f2QFcQf4
   feign:
     client:
       core-banking: core-banking-service
